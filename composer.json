@@ -1,18 +1,27 @@
 {
-  "name": "swag/plugin-skeleton",
-  "description": "Skeleton plugin",
-  "type": "shopware-platform-plugin",
-  "license": "MIT",
-  "autoload": {
-    "psr-4": {
-      "SgFredConfigurator\\": "src/"
+    "name": "sg/fred-configurator",
+    "description": "Configurator Framework",
+    "type": "shopware-platform-plugin",
+    "license": "proprietary",
+    "version": "0.0.1",
+    "authors": [
+        {
+            "name": "Stephan Gröli"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Sg\\FredConfigurator\\": "src/"
+        }
+    },
+    "require": {
+        "shopware/core" : "~6.2"
+    },
+    "extra": {
+        "shopware-plugin-class": "Sg\\FredConfigurator\\SgFredConfigurator",
+        "label": {
+            "de-DE": "Fred Konfigurator",
+            "en-GB": "Fred Configurator"
+        }
     }
-  },
-  "extra": {
-    "shopware-plugin-class": "SgFredConfigurator\\SgFredConfigurator",
-    "label": {
-      "de-DE": "Skeleton plugin",
-      "en-GB": "Skeleton plugin"
-    }
-  }
 }

@@ -5,6 +5,14 @@
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <services>
-
+        <service id="Sg\FredConfigurator\DAL\Configuration\ConfigurationDefinition">
+            <tag name="shopware.entity.definition" entity="sg_fred_configurator"/>
+        </service>
+        <service id="Sg\FredConfigurator\DAL\Flow\FlowDefinition">
+            <tag name="shopware.entity.definition" entity="sg_fred_flow"/>
+        </service>
+        <service id="Sg\FredConfigurator\DAL\Configuration\Extension\ProductExtension">
+            <tag name="shopware.entity.extension"/>
+        </service>
     </services>
 </container>
