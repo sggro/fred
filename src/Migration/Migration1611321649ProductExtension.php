@@ -18,7 +18,7 @@ class Migration1611321649ProductExtension extends MigrationStep
             ALTER TABLE `product`
                     ADD COLUMN `sg_fred_configuration_id` BINARY(16) NULL
                     ');
-    }
+}
 
     public function updateDestructive(Connection $connection): void
     {

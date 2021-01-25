@@ -1,7 +1,39 @@
 {% block sg_fred_flow_detail %}
     <sw-page class="sg-fred-flow-detail">
-        <template #content>
-            Hello Detail Flow!
+        <template slot="smart-bar-header">
+            <h2>Create new Flow</h2>
         </template>
+        <template slot="smart-bar-actions">
+
+                <sw-button
+                    :routerLink="{ name: 'sg.fred.flow.index' }">
+                    Cancel
+                </sw-button>
+
+                <sw-button-process
+                    class="sw-property-detail__save-action"
+                    :isLoading="isLoading"
+                    :processSuccess="isSaveSuccessful"
+                    :disabled="isLoading"
+                    @process-finish="saveFinish"
+                    variant="primary"
+                    @click.prevent="onSave">
+                    Save
+                </sw-button-process>
+
+        </template>
+        <template #content>
+            <sw-card-view slot="content">
+                <sw-card v-if="flow" title="Basic Information">
+                    <sw-field
+                        label="Name"
+                        placeholder="Put the name here"
+                        v-model="flow.name">
+                        Lorem ipsum dolor sit amet
+                    </sw-field>
+                </sw-card>
+            </sw-card-view>
+        </template>
+
     </sw-page>
 {% endblock %}

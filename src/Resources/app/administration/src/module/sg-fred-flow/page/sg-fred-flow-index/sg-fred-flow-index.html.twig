@@ -1,7 +1,21 @@
 {% block sg_fred_flow_index %}
     <sw-page class="sg-fred-flow-index">
+        <template slot="smart-bar-actions">
+            <sw-button
+                variant="primary"
+                :routerLink="{ name: 'sg.fred.flow.create' }">
+                 Create new Flow
+            </sw-button>
+        </template>
         <template #content>
-            Hello Flow!
+            <sw-entity-listing
+                v-if="flows"
+                :items="flows"
+                :repository="repository"
+                :showSelection="false"
+                :columns="columns"
+                detailRoute="sg.fred.flow.detail">
+            </sw-entity-listing>
         </template>
     </sw-page>
 {% endblock %}

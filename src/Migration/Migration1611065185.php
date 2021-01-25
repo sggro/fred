@@ -17,6 +17,7 @@ class Migration1611065185 extends MigrationStep
         $connection->executeUpdate(
             'CREATE TABLE IF NOT EXISTS `sg_fred_flow` (
                   `id` BINARY(16) NOT NULL,
+                  `name` VARCHAR(255) NOT NULL,
                   `created_at` DATETIME(3) NOT NULL,
                   `updated_at` DATETIME(3) NULL,
                   PRIMARY KEY(`id`)
@@ -26,6 +27,7 @@ class Migration1611065185 extends MigrationStep
         $connection->executeUpdate('CREATE TABLE IF NOT EXISTS `sg_fred_configuration` (
         `id` BINARY(16) NOT NULL,
         `sg_fred_flow_id` BINARY(16) NULL,
+        `name` VARCHAR(255) NOT NULL,
         `created_at` DATETIME(3) NOT NULL,
         `updated_at` DATETIME(3) NULL,
         PRIMARY KEY(`id`),
