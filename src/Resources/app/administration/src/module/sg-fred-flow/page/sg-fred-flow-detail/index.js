@@ -1,9 +1,16 @@
 import template from './sg-fred-flow-detail.html.twig';
+import FlowChart from 'flowchart-vue';
+
+import './sg-fred-flow-detail.scss';
 
 const { Component, Context } = Shopware;
 
 Component.register('sg-fred-flow-detail', {
     template,
+
+    components: {
+        FlowChart
+    },
 
     inject: [
         'repositoryFactory'
@@ -13,7 +20,22 @@ Component.register('sg-fred-flow-detail', {
         return {
             isLoading: false,
             isSaveSuccessful: false,
-            flow: null
+            flow: null,
+            nodes: [
+                // Basic fields
+                {id: 1, x: 140, y: 270, name: 'Start', type: 'start'},
+                // You can add any generic fields to node, for example: description
+                // It will be passed to @save, @editnode
+                {id: 2, x: 540, y: 270, name: 'End', type: 'end', description: 'Im here'},
+            ],
+            connections: [
+                {
+                    source: {id: 1, position: 'right'},
+                    destination: {id: 2, position: 'left'},
+                    id: 1,
+                    type: 'pass',
+                },
+            ],
 
         }
     },
@@ -74,6 +96,17 @@ Component.register('sg-fred-flow-detail', {
                 .catch((exception) => {
                     console.log('exception', exception);
                 })
-        }
+        },
+
+        handleDblClick(position) {
+            this.$refs.chart.add({
+                id: +new Date(),
+                x: position.x,
+                y: position.y,
+                name: 'New',
+                type: 'operation',
+                approvers: [],
+            });
+        },
     }
 });

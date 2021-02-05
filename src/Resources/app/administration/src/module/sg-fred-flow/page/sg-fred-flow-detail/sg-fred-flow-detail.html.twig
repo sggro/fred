@@ -29,8 +29,12 @@
                         label="Name"
                         placeholder="Put the name here"
                         v-model="flow.name">
-                        Lorem ipsum dolor sit amet
                     </sw-field>
+                </sw-card>
+                <sw-card title="Flow ConfigT">
+                    <flowChart ref="chart"
+                               @dblclick="handleDblClick"
+                               :nodes="nodes" :connections="connections"></flowChart>
                 </sw-card>
             </sw-card-view>
         </template>

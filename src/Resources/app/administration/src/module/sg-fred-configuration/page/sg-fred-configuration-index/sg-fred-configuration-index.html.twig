@@ -1,0 +1,21 @@
+{% block sg_fred_configuration_index %}
+    <sw-page class="sg-fred-configuration-index">
+        <template slot="smart-bar-actions">
+            <sw-button
+                variant="primary"
+                :routerLink="{ name: 'sg.fred.configuration.create' }">
+                Create new Configuration
+            </sw-button>
+        </template>
+        <template #content>
+            <sw-entity-listing
+                v-if="configurations"
+                :items="configurations"
+                :repository="repository"
+                :showSelection="false"
+                :columns="columns"
+                detailRoute="sg.fred.configuration.detail">
+            </sw-entity-listing>
+        </template>
+    </sw-page>
+{% endblock %}
